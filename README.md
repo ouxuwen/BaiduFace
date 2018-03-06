@@ -6,3 +6,8 @@ Baidu Portrait collection
 2、获得证书后替换工程中的 license 文件。
 
 3、添加到工程中。
+
+
+使用方法：
+
+ cordova plugin add https://github.com/ouxuwen/BaiduFace.git
