@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.baidu.face" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>BaiduFace</name>
+    <js-module name="BaiduFace" src="www/BaiduFace.js">
+        <clobbers target="BaiduFace" />
+    </js-module>
+    <engines>
+            <engine name="cordova" version="&gt;=3.0.0" />
+    </engines>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="BaiduFace">
+            <param name="android-package" value="com.baidu.face.BaiduFace"/>
+        </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+            <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name="android.hardware.camera.autofocus" />
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+            <uses-feature
+                android:name="android.hardware.camera"
+                android:required="false" />
+            <uses-feature
+                android:name="android.hardware.camera.front"
+                android:required="false" />
+            <uses-feature
+                android:name="android.hardware.camera.autofocus"
+                android:required="false" />
+            <uses-feature
+                android:name="android.hardware.camera.flash"
+                android:required="false" />
+        </config-file>
+         <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+            android:name="com.baidu.idl.face.platform.ui.FaceDetectActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        </config-file>
+        <framework src="src/android/baidu.gradle" custom="true" type="gradleReference" />
+        <source-file src="src/android/BaiduFace.java" target-dir="src/com/baidu/face"/>
+        <source-file src="src/android/Config.java" target-dir="src/com/baidu/face"/>
+        <source-file src="src/android/libs/faceplatform-release.aar" target-dir="libs"/>
+        <!--<source-file src="src/android/libs/faceplatform-ui-release.aar" target-dir="libs"/>-->
+        <source-file src="src/android/libs/faceplatform-ui-debug.aar" target-dir="libs"/>
+        <source-file src="src/android/idl-license.face-android" target-dir="assets"/>
+    </platform>
+    
+
+
+</plugin>

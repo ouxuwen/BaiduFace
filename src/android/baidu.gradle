@@ -1,0 +1,12 @@
+android {
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+dependencies {
+    //compile(name:'faceplatform-ui-release', ext:'aar')
+    compile(name:'faceplatform-ui-debug', ext:'aar')
+    compile(name:'faceplatform-release', ext:'aar')
+}
